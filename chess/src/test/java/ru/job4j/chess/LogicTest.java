@@ -16,7 +16,7 @@ public class LogicTest {
         logic.add(new BishopBlack(Cell.C1));
         logic.add(new BishopBlack(Cell.D2));
         Assert.assertThrows(ImpossibleMoveException.class, () -> {
-            logic.move(Cell.C1, Cell.H5);;
+            logic.move(Cell.C1, Cell.H5);
         });
         Assert.assertThrows(OccupiedCellException.class, () -> {
             logic.move(Cell.C1, Cell.D2);
