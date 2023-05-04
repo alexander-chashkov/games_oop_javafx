@@ -27,7 +27,8 @@ public class BishopBlack implements Figure {
         int y = dest.getY() - position.getY();
         var res = new Cell[Math.abs(x)];
         for (int i = 1; i <= Math.abs(x); i++) {
-            res[i - 1] = Cell.findBy(position.getX() + (x > 0 ? 1 : -1) * i, position.getY() + (y > 0 ? 1 : -1) * i);
+            res[i - 1] = Cell.findBy(position.getX() + (x > 0 ? 1 : -1) * i,
+                    position.getY() + (y > 0 ? 1 : -1) * i);
         }
         return res;
     }
