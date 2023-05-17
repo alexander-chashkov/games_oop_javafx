@@ -23,12 +23,15 @@ public class BishopBlack implements Figure {
                     String.format("Could not move by diagonal from %s to %s", position, dest)
             );
         }
-        int x = dest.getX() - position.getX();
-        int y = dest.getY() - position.getY();
-        var res = new Cell[Math.abs(x)];
-        for (int i = 1; i <= Math.abs(x); i++) {
-            res[i - 1] = Cell.findBy(position.getX() + (x > 0 ? 1 : -1) * i,
-                    position.getY() + (y > 0 ? 1 : -1) * i);
+        int deltaX = dest.getX() - position.getX() > 0 ? 1 : -1;
+        int deltaY = dest.getY() - position.getY() > 0 ? 1 : -1;
+        int x = position.getX();
+        int y = position.getY();
+        var res = new Cell[Math.abs(dest.getX() - position.getX())];
+        for (int i = 0; i < res.length; i++) {
+            x += deltaX;
+            y += deltaY;
+            res[i] = Cell.findBy(x, y);
         }
         return res;
     }
